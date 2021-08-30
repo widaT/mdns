@@ -20,5 +20,4 @@ func main() {
 		fmt.Println(item.AddrV4)
 		fmt.Println(item.Port)
 	}
-
 }

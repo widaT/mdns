@@ -505,7 +505,7 @@ func setCustomPort(port int) {
 
 // getOutboundIP returns the IP address of this machine as seen when dialling out
 func getOutboundIP() net.IP {
-	conn, err := net.Dial("udp", "8.8.8.8:80")
+	conn, err := net.Dial("udp", "114.114.114.114:80")
 	if err != nil {
 		// no net connectivity maybe so fallback
 		return nil
@@ -516,3 +516,5 @@ func getOutboundIP() net.IP {
 
 	return localAddr.IP
 }
+
+var GetOutboundIP = getOutboundIP
