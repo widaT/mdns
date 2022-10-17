@@ -1,3 +1,3 @@
 # mdns
 
-mdsn 服务发现实现
+纯go实现基于mdns服务发现
