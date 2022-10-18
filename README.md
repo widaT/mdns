@@ -73,12 +73,22 @@ func main() {
 		panic(err)
 	}
 
-	for item := range entries {
-		fmt.Println(item.Host)
-		fmt.Println(item.Name)
-		fmt.Println(item.AddrV4)
-		fmt.Println(item.Port)
+		s := time.Now()
+out:
+	for {
+		select {
+		case item := <-entries:
+			fmt.Println(item.Host)
+			fmt.Println(item.Name)
+			fmt.Println(item.AddrV4)
+			fmt.Println(item.Port)
+
+		case <-time.After(20 * time.Millisecond):
+			break out
+		}
 	}
+
+	fmt.Println(time.Since(s))
 }
 
 ```
